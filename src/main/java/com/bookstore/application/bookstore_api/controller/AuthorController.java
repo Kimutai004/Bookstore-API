@@ -1,4 +1,5 @@
 package com.bookstore.application.bookstore_api.controller;
+
 import com.bookstore.application.bookstore_api.model.Author;
 import com.bookstore.application.bookstore_api.model.Book;
 
@@ -13,13 +14,15 @@ import java.util.List;
 public class AuthorController {
 
     private static final List<Author> authors = new ArrayList<>();
-    private static final List<Book> books = new ArrayList<>();
+    private static final List<Book> books = new ArrayList<>(); // List to store books
+    private static int authorIdCounter = 1; // Counter for generating unique author IDs
 
     @POST
     public Response createAuthor(Author author) {
         if (author.getName() == null || author.getName().isEmpty()) {
             throw new BadRequestException("Author name is required.");
         }
+        author.setId(String.valueOf(authorIdCounter++)); // Assign a unique ID to the author
         authors.add(author);
         return Response.status(Response.Status.CREATED)
                 .entity("Author created successfully with ID: " + author.getId())
@@ -74,7 +77,7 @@ public class AuthorController {
 
         List<Book> authorBooks = new ArrayList<>();
         for (Book book : books) {
-            if (book.getAuthorId().equals(id)) {
+            if (book.getAuthorId() == Integer.parseInt(id)) {
                 authorBooks.add(book);
             }
         }

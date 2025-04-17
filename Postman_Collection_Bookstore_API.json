@@ -1,0 +1,327 @@
+{
+  "info": {
+    "name": "Bookstore API",
+    "description": "Postman collection for testing Bookstore API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"John Doe\", \"email\": \"john@example.com\" }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Get Customer by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"John Doe\", \"email\": \"john@example.com\" }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"orderId\": \"12345\", \"items\": [...] }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/orders/{{orderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "orders", "{{orderId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Book Title\", \"authorId\": \"authorId\", \"isbn\": \"1234567890\", \"price\": 19.99 }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["books"]
+            }
+          }
+        },
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["books"]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/books/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"title\": \"Updated Title\", \"authorId\": \"authorId\", \"isbn\": \"1234567890\", \"price\": 19.99 }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/books/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "{{id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Add to Cart",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"bookId\": \"bookId\", \"quantity\": 1 }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/cart/items",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "cart", "items"]
+            }
+          }
+        },
+        {
+          "name": "Get Cart",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/cart",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "cart"]
+            }
+          }
+        },
+        {
+          "name": "Update Cart Item",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/cart/items/{{bookId}}?quantity=2",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "cart", "items", "{{bookId}}"]
+            }
+          }
+        },
+        {
+          "name": "Remove from Cart",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{customerId}}/cart/items/{{bookId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{customerId}}", "cart", "items", "{{bookId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Authors",
+      "item": [
+        {
+          "name": "Create Author",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Author Name\" }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/authors",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors"]
+            }
+          }
+        },
+        {
+          "name": "Get All Authors",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/authors",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors"]
+            }
+          }
+        },
+        {
+          "name": "Get Author by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/authors/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Author",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Updated Author Name\" }"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/authors/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Author",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/authors/{{id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "{{id}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Books by Author",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/authors/{{id}}/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["authors", "{{id}}", "books"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

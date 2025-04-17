@@ -1,28 +1,32 @@
 package com.bookstore.application.bookstore_api.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Book {
 
     private String id;
     private String title;
-    private String authorId;
+    private int authorId;
     private String isbn;
     private int publicationYear;
     private double price;
-    private int stockQuantity;
 
-    public Book() {
-    }
 
     public Book(String id, String title, String authorId, String isbn, int publicationYear, double price, int stockQuantity) {
         this.id = id;
         this.title = title;
-        this.authorId = authorId;
+        this.authorId = Integer.parseInt(authorId);
         this.isbn = isbn;
         this.publicationYear = publicationYear;
         this.price = price;
         this.stockQuantity = stockQuantity;
     }
+    
 
+    @JsonProperty("stock")
+    private int stockQuantity;
+
+    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -39,11 +43,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthorId() {
+    public int getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(String authorId) {
+    public void setAuthorId(int authorId) {
         this.authorId = authorId;
     }
 
@@ -78,10 +82,4 @@ public class Book {
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
-
-
-
-
-
-
 }

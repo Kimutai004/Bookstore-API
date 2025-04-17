@@ -1,5 +1,4 @@
 package com.bookstore.application.bookstore_api;
-
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.Response;
 import org.glassfish.jersey.server.ResourceConfig;

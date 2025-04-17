@@ -22,9 +22,13 @@ public class BookController {
         if (book.getTitle() == null || book.getTitle().isEmpty()) {
             throw new InvalidInputException("Book title is required.");
         }
+
+        // Generate unique ID
+        book.setId(String.valueOf(books.size() + 1));
         books.add(book);
+
         return Response.status(Response.Status.CREATED)
-                .entity("Book created successfully with ID: " + book.getId())
+                .entity(book) // Return created book object
                 .build();
     }
 

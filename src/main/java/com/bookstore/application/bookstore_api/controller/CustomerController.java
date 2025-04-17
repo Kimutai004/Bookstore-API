@@ -15,6 +15,7 @@ import java.util.List;
 public class CustomerController {
 
     private static final List<Customer> customers = new ArrayList<>();
+    private static int customerIdCounter = 1; // Counter for generating unique customer IDs
 
     @POST
     public Response createCustomer(Customer customer) {
@@ -24,6 +25,7 @@ public class CustomerController {
         if (customer.getEmail() == null || customer.getEmail().isEmpty()) {
             throw new BadRequestException("Customer email is required.");
         }
+        customer.setId(String.valueOf(customerIdCounter++)); // Assign a unique ID to the customer
         customers.add(customer);
         return Response.status(Response.Status.CREATED)
                 .entity("Customer created successfully with ID: " + customer.getId())
