@@ -15,7 +15,7 @@ The **Bookstore API** is a RESTful web service for managing a bookstore. It allo
 
 ## 🛠️ Tech Stack
 
-- **Java** (Spring Boot Framework)
+- **Java** (JAX-RS Framework)
 - **JAR-RS** (REST API development)
 - **H2** (Memory storage)
 
@@ -32,14 +32,8 @@ The **Bookstore API** is a RESTful web service for managing a bookstore. It allo
 
 1. **Clone the Repository**
    ```sh
-   git clone https://github.com/itskipronoh/Bookstore-API.git
+   git clone https://github.com/Kimutai004/Bookstore-API.git
    cd Bookstore-API
-   ```
-2. **Configure Memory location**
-   - Update `application.properties` for  H2.
-3. **Build and Run the Application**
-   ```sh
-   mvn spring-boot:run
    ```
 
 ## 📌 API Endpoints
@@ -99,4 +93,4 @@ Feel free to fork the repo, open an issue, or submit a pull request!
 
 ## 📬 Contact
 
-**GitHub**: [@itskipronoh](https://github.com/itskipronoh)
+**GitHub**: [@ikimuati004](https://github.com/Kimutai004)
